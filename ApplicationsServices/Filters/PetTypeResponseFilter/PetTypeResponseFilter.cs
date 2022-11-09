@@ -6,5 +6,6 @@ namespace ApplicationsServices.Filters.PetTypeResponseFilter
     public class PetTypeResponseFilter : ParameterResponse
     {
         public string? type { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Veterinary.WebApi.Controllers.v1._0
                 PageNumber = filter.PageNumber,
                 PageSize = filter.PageSize,
                 specialty = filter.specialty,
+                IsDeleted = filter.IsDeleted
 
             }));
         }

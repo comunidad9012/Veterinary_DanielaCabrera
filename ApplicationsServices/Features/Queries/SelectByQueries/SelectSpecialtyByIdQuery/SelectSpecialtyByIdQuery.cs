@@ -10,6 +10,7 @@ namespace ApplicationsServices.Features.Queries.SelectByQueries.SelectSpecialtyB
     public class SelectSpecialtyByIdQuery : IRequest<Response<SpecialtyFullDto>>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
     public class SelectSpecialtyByIdQueryHandler : IRequestHandler<SelectSpecialtyByIdQuery, Response<SpecialtyFullDto>>
     {

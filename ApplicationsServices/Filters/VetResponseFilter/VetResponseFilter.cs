@@ -6,5 +6,6 @@ namespace ApplicationsServices.Filters.VetResponseFilter
     {
         public string? vetName { get; set; }
         public string? vetSurname { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

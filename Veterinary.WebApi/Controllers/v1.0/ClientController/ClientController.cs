@@ -10,7 +10,9 @@ using ApplicationsServices.Features.Commands.DeleteCommands;
 using ApplicationsServices.Features.Commands.DeleteCommands.DeleteClientCommand;
 using ApplicationsServices.Features.Commands.UpdateCommands.UpdateClientCommand;
 using ApplicationsServices.Features.Queries.SelectAllQueries;
+using ApplicationsServices.Features.Queries.SelectAllQueries.SelectClientQuery;
 using ApplicationsServices.Features.Queries.SelectByQueries;
+using ApplicationsServices.Features.Queries.SelectByQueries.SelectClientByIdQuery;
 using ApplicationsServices.Filters.ClientResponseFilter;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +29,8 @@ namespace Veterinary.WebApi.Controllers.v1
                 PageNumber = filter.PageNumber,
                 PageSize = filter.PageSize,
                 clientName = filter.clientName,
-                clientSurname = filter.clientSurname
+                clientSurname = filter.clientSurname,
+                IsDeleted=filter.IsDeleted
             }));
         }
 

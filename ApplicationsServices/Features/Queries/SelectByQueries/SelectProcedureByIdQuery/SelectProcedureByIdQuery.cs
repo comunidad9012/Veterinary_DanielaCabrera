@@ -10,6 +10,7 @@ namespace ApplicationsServices.Features.Queries.SelectByQueries.SelectProcedureB
     public class SelectProcedureByIdQuery : IRequest<Response<ProcedureFullDto>>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
     public class SelectProcedureByIdQueryHandler : IRequestHandler<SelectProcedureByIdQuery, Response<ProcedureFullDto>>
     {

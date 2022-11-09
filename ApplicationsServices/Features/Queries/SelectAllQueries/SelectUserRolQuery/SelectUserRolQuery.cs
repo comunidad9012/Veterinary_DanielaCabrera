@@ -1,6 +1,7 @@
 ﻿using ApplicationsServices.Filters.UserRolResponseFilter;
 using ApplicationsServices.Interfaces;
 using ApplicationsServices.Specifications;
+using ApplicationsServices.Specifications.PaginatedUserRolSpecification;
 using ApplicationsServices.Wrappers;
 using AutoMapper;
 using MediatR;
@@ -14,6 +15,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectUserRolQu
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public string? rol { get; set; }
+        public bool IsDeleted { get; set; }
 
 
         public class SelectUserRolQueryHandler : IRequestHandler<SelectUserRolQuery, PaginatedResponse<IEnumerable<UserRolFullDto>>>
@@ -33,12 +35,13 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectUserRolQu
                     PageSize = request.PageSize,
                     PageNumber = request.PageNumber,
                     rol = request.rol,
+                    IsDeleted = request.IsDeleted
 
                 };
 
                 var userRol = await _repository.ListAsync(new PaginatedUserRolSpecification(responseFilter));
                 var userRolFullDtos = _mapper.Map<IEnumerable<UserRolFullDto>>(userRol);
-                return new PaginatedResponse<IEnumerable<UserRolFullDto>>(userRolFullDtos, request.PageNumber, request.PageSize);
+                return new PaginatedResponse<IEnumerable<UserRolFullDto>>(userRolFullDtos, request.PageNumber, request.PageSize,request.IsDeleted);
             }
         }
     }

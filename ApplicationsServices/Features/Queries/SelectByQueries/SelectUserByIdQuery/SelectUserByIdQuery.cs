@@ -10,6 +10,7 @@ namespace ApplicationsServices.Features.Queries.SelectByQueries.SelectUserByIdQu
     public class SelectUserByIdQuery : IRequest<Response<UserFullDto>>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
     public class SelectUserByIdQueryHandler : IRequestHandler<SelectUserByIdQuery, Response<UserFullDto>>
     {

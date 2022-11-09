@@ -9,7 +9,7 @@ namespace DomainClass.Common
     {
         public long Id { get; set; }
         public long IdCreateBy { get; set; }
-        public DateTime? CreateDate { get; set; }//el signo de interrogación es nulo
+        public DateTime? CreateDate { get; set; }
         public long IdLastModifiedBy { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public bool IsDeleted { get; set; }

@@ -1,6 +1,7 @@
 ﻿using ApplicationsServices.Filters.PetTypeResponseFilter;
 using ApplicationsServices.Interfaces;
 using ApplicationsServices.Specifications;
+using ApplicationsServices.Specifications.PaginatedPetTypeSpecification;
 using ApplicationsServices.Wrappers;
 using AutoMapper;
 using MediatR;
@@ -14,6 +15,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectPetTypeQu
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public string? type { get; set; }
+        public bool IsDeleted { get; set; }
     }
 
     public class SelectPetTypeQueryHandler : IRequestHandler<SelectPetTypeQuery, PaginatedResponse<IEnumerable<PetTypeFullDto>>>
@@ -37,7 +39,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectPetTypeQu
 
             var type = await _repository.ListAsync(new PaginatedPetTypeSpecification(responseFilter));
             var petTypeFullDtos = _mapper.Map<IEnumerable<PetTypeFullDto>>(type);
-            return new PaginatedResponse<IEnumerable<PetTypeFullDto>>(petTypeFullDtos, request.PageNumber, request.PageSize);
+            return new PaginatedResponse<IEnumerable<PetTypeFullDto>>(petTypeFullDtos, request.PageNumber, request.PageSize, request.IsDeleted);
         }
     }
 }

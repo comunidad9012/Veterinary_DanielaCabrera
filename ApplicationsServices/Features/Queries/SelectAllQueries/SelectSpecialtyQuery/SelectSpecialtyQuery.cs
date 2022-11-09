@@ -1,4 +1,6 @@
-﻿using ApplicationsServices.Interfaces;
+﻿using ApplicationsServices.Filters.SpecialtyResponseFilter;
+using ApplicationsServices.Interfaces;
+using ApplicationsServices.Specifications.PaginatedSpecialtySpecification;
 using ApplicationsServices.Wrappers;
 using AutoMapper;
 using MediatR;
@@ -12,6 +14,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectSpecialty
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public string? specialty { get; set; }
+        public bool IsDeleted { get; set; }
 
         public class SelectSpecialtyQueryHandler : IRequestHandler<SelectSpecialtyQuery, PaginatedResponse<IEnumerable<SpecialtyFullDto>>>
         {
@@ -30,11 +33,12 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectSpecialty
                     PageSize = request.PageSize,
                     PageNumber = request.PageNumber,
                     specialty = request.specialty,
+                    IsDeleted = request.IsDeleted
                 };
 
                 var specialties = await _repository.ListAsync(new PaginatedSpecialtySpecification(responseFilter));
                 var specialtyFullDtos = _mapper.Map<IEnumerable<SpecialtyFullDto>>(specialties);
-                return new PaginatedResponse<IEnumerable<SpecialtyFullDto>>(specialtyFullDtos, request.PageNumber, request.PageSize);
+                return new PaginatedResponse<IEnumerable<SpecialtyFullDto>>(specialtyFullDtos, request.PageNumber, request.PageSize, request.IsDeleted);
             }
         }
     }

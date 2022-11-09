@@ -7,5 +7,6 @@ namespace ApplicationsServices.Filters.UserResponseFilter
     {
         public string? name { get; set; }
         public string? userSurname { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

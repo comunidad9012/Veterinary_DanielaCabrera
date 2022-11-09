@@ -10,6 +10,7 @@ namespace ApplicationsServices.Features.Queries.SelectByQueries.SelectUserRolByI
     public class SelectUserRolByIdQuery : IRequest<Response<UserRolFullDto>>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
     public class SelectUserRolByIdQueryHandler : IRequestHandler<SelectUserRolByIdQuery, Response<UserRolFullDto>>
     {

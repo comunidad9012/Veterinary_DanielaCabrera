@@ -7,5 +7,6 @@ namespace ApplicationsServices.Filters.VisitResponseFilter
         public long petId { get; set; }
         public long vetId { get; set; }
         public DateTime visitDate { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

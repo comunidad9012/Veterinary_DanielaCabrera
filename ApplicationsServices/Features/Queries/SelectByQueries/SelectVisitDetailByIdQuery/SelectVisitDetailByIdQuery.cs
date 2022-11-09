@@ -1,6 +1,4 @@
-﻿
-
-using ApplicationsServices.Interfaces;
+﻿using ApplicationsServices.Interfaces;
 using ApplicationsServices.Wrappers;
 using AutoMapper;
 using MediatR;
@@ -12,6 +10,7 @@ namespace ApplicationsServices.Features.Queries.SelectByQueries.SelectVisitDetai
     public class SelectVisitDetailByIdQuery : IRequest<Response<VisitDetailFullDto>>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
     public class SelectVisitDetailByIdQueryHandler : IRequestHandler<SelectVisitDetailByIdQuery, Response<VisitDetailFullDto>>
     {

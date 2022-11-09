@@ -10,6 +10,7 @@ namespace ApplicationsServices.Features.Queries.SelectByQueries.SelectVetByIdQue
     public class SelectVetByIdQuery : IRequest<Response<VetFullDto>>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
     public class SelectVetByIdQueryHandler : IRequestHandler<SelectVetByIdQuery, Response<VetFullDto>>
     {

@@ -14,6 +14,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectProcedure
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public string? procedure { get; set; }
+        public bool IsDeleted { get; set; }
 
         public class SelectProcedureQueryHandler : IRequestHandler<SelectProcedureQuery, PaginatedResponse<IEnumerable<ProcedureFullDto>>>
         {
@@ -36,7 +37,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectProcedure
 
                 var procedures = await _repository.ListAsync(new PaginatedProcedureSpecification(responseFilter));
                 var procedureFullDtos = _mapper.Map<IEnumerable<ProcedureFullDto>>(procedures);
-                return new PaginatedResponse<IEnumerable<ProcedureFullDto>>(procedureFullDtos, request.PageNumber, request.PageSize);
+                return new PaginatedResponse<IEnumerable<ProcedureFullDto>>(procedureFullDtos, request.PageNumber, request.PageSize, request.IsDeleted);
             }
         }
     }

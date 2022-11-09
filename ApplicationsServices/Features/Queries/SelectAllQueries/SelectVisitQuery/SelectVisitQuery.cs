@@ -1,6 +1,6 @@
-﻿
-
+﻿using ApplicationsServices.Filters.VisitResponseFilter;
 using ApplicationsServices.Interfaces;
+using ApplicationsServices.Specifications.PaginatedVisitSpecification;
 using ApplicationsServices.Wrappers;
 using AutoMapper;
 using MediatR;
@@ -16,6 +16,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectVisitQuer
         public long petId { get; set; }
         public long vetId { get; set; }
         public DateTime visitDate { get; set; }
+        public bool IsDeleted { get; set; }
 
         public class SelectVisitQueryHandler : IRequestHandler<SelectVisitQuery, PaginatedResponse<IEnumerable<VisitFullDto>>>
         {
@@ -36,11 +37,12 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectVisitQuer
                     petId = request.petId,
                     vetId = request.vetId,
                     visitDate = request.visitDate,
+                    IsDeleted = request.IsDeleted   
                 };
 
                 var visits = await _repository.ListAsync(new PaginatedVisitSpecification(responseFilter));
                 var visitFullDtos = _mapper.Map<IEnumerable<VisitFullDto>>(visits);
-                return new PaginatedResponse<IEnumerable<VisitFullDto>>(visitFullDtos, request.PageNumber, request.PageSize);
+                return new PaginatedResponse<IEnumerable<VisitFullDto>>(visitFullDtos, request.PageNumber, request.PageSize, request.IsDeleted);
             }
         }
     }
