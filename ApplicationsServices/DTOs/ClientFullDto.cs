@@ -19,7 +19,8 @@ namespace Veterinary.Core.DTOs
         public string? clientPhoneNum { get; set; }
         public string? clientIdn { get; set; }
         public string? email { get; set; }
+        public bool IsDeleted { get; set; }
 
-        
+
     }
 }

@@ -16,6 +16,6 @@ namespace Veterinary.Core.DTOs
         public string? verPhoneNum { get; set; }
         public string? vetIdn { get; set; }
         public int specialtyId { get; set; }
-       
+        public bool IsDeleted { get; set; }
     }
 }

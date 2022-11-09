@@ -18,7 +18,8 @@ namespace Persistence
             //La salida por pantalla sera: System.Int32.
             //Assembly: obtiene la propiedad Assembly en la que está declarado el tipo.
             //FullName: obtiene el nombre para mostrar el ensamblado.
-            services.AddDbContext<VeterinaryAppContext>(options => options.UseSqlServer(configuration.GetConnectionString("MsSqlServer2"), c => c.MigrationsAssembly(typeof(VeterinaryAppContext).Assembly.FullName)));
+            services.AddDbContext<VeterinaryAppContext>(options => options.UseSqlServer
+            (configuration.GetConnectionString("MsSqlServer2"), c => c.MigrationsAssembly(typeof(VeterinaryAppContext).Assembly.FullName)));
            
             #region Repositories
             services.AddTransient(typeof(IRepository<>), typeof(RepositoryCustom<>));

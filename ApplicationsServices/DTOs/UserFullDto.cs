@@ -16,6 +16,7 @@ namespace Veterinary.Core.DTOs
         public string? userAdress { get; set; }
         public string? password { get; set; }
         public string? email { get; set; }
+        public bool IsDeleted { get; set; }
 
     }
 }

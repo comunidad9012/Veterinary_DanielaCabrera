@@ -11,8 +11,6 @@
 //Por esto debo aplanar los datos para enviarlos a través de la red. 
 
 namespace ApplicationsServices.DTOs
-    
-
 {
     public class AddUserDto
     {
@@ -23,5 +21,6 @@ namespace ApplicationsServices.DTOs
         public string email { get; set; }
         public string? userPhoneNumber { get; set; }
         public long userRol { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

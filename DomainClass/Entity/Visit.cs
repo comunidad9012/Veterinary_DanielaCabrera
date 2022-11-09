@@ -7,7 +7,7 @@ namespace Veterinary.DomainClass.Entity
         public long petId { get; set; }
         public long vetId { get; set; }
         public DateTime visitDate { get; set; }
-
+        public virtual Vet Vet { get; set; }
         
     }
 }

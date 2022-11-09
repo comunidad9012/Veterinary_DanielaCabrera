@@ -6,6 +6,6 @@ namespace Veterinary.DomainClass.Entity
     {
         //public int procedureId { get; set; }
         public string? procedure { get; set; }
-
+        public virtual ICollection<VisitDetail> VisitDetails { get; set; }
     }
 }

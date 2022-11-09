@@ -11,7 +11,6 @@ namespace Veterinary.DomainClass.Entity
         public string? vetPhoneNum { get; set; }
         public string? vetIdn { get; set; }
         public long specialtyId { get; set; }
-
-       
+        public virtual ICollection<Specialty> Specialties { get; set; }
     }
 }

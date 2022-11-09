@@ -15,13 +15,13 @@ namespace Persistence.Contexts
             //ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
-        DbSet<Client> Clients { get; set; }
+        public DbSet<Client> Clients { get; set; }
         DbSet<User> Users { set; get; }
-        DbSet<Pet> Pets { get; set; }
-        DbSet<PetType> PetTypes { get; set; }
+        public DbSet<Pet> Pets { get; set; }
+        public DbSet<PetType> PetTypes { get; set; }
+        DbSet<UserRol> UserRol { get; set; }
         DbSet<Procedure> Procedures { get; set; }
         DbSet<Specialty> Specialties { get; set; }
-        DbSet<UserRol> UserRol { get; set; }
         DbSet<Vet> Vets { get; set; }
         DbSet<Visit> Visits { get; set; }
         DbSet<VisitDetail> VisitDetails { get; set; }
@@ -33,11 +33,11 @@ namespace Persistence.Contexts
                 switch (entry.State)
                 {
                     case EntityState.Modified:
-                        //entry.Entity.IdLastModifiedBy = 0;
+                        //entry.Entity.LastModifiedBy = 0;
                         entry.Entity.LastModifiedDate = DateTime.UtcNow;
                         break;
                     case EntityState.Added:
-                        //entry.Entity.IdCreateBy = 0;
+                        //entry.Entity.CreateBy = 0;
                         entry.Entity.CreateDate = DateTime.UtcNow;
                         entry.Entity.LastModifiedDate = DateTime.UtcNow;
                         entry.Entity.IsDeleted = false;
@@ -46,8 +46,8 @@ namespace Persistence.Contexts
             }
             return base.SaveChangesAsync(cancellationToken);
         }
-        
     }
+        
 }
 
     

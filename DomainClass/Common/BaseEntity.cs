@@ -1,4 +1,4 @@
-﻿//BaseEntity.cs=Esta clase tendrá todas las cosas que sean comunes para
+﻿//BaseEntity=Esta clase tendrá todas las cosas que sean comunes para
 //todas las entidades como un id, IdCreateBy, DateTime? CreateDate, IdLastModifiedBy y LastModifiedDate.
 //todas las demás entidades van a heredar de aquí
 using Veterinary.DomainClass.Entity;
@@ -19,10 +19,10 @@ namespace DomainClass.Common
         /// hereda todos los metodos y atributos de clase padre
         /// pero estos pueden ser modificados, esto es sobreescribir
         /// </summary>
-        #region Navigation Properties
-        public virtual User CreateBy { get; set; }
-        public virtual User LastModifiedBy { get; set; }
-        #endregion
+        //#region Navigation Properties
+        //public virtual User CreateBy { get; set; }
+        //public virtual User LastModifiedBy { get; set; }
+        //#endregion
         //Esto es lo de auditoria
         //virtual es sobreescribir
 

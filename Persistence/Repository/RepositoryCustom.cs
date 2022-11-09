@@ -4,7 +4,7 @@ using Persistence.Contexts;
 
 namespace Persistence.Repository
 {
-    public class RepositoryCustom<T> : RepositoryBase<T>, IRepository<T> where T : class
+    internal class RepositoryCustom<T> : RepositoryBase<T>, IRepository<T> where T : class
     {
         private readonly VeterinaryAppContext _context;
 

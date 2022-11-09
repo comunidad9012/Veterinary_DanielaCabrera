@@ -8,5 +8,6 @@ namespace Veterinary.DomainClass.Entity
         public long procedureId { get; set; }
         public string? price { get; set; }
 
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿//El controlador es el que se encarga de devolver a la vista la informacio que traigamos de la base de datos o viceversa. 
-//La  informacion fluye: de la visata al cotrolador, del controlador a los repositorios y del repositorio a la base de datos y viceversa.using ApplicationsServices.Features.Commands.CreateCommands.CreateVetCommand;
+//La  informacion fluye: de la vista al cotrolador, del controlador a los repositorios y del repositorio a la base de datos y viceversa.
+//Vamos a tener tantos controladores como datos que se van a querer modificar en la base de datos.
 using ApplicationsServices.Features.Commands.CreateCommands.CreateVetCommand;
 using ApplicationsServices.Features.Commands.DeleteCommands.DeleteVetCommand;
 using ApplicationsServices.Features.Commands.UpdateCommands.UpdateVetCommand;

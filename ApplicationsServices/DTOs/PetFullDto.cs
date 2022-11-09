@@ -8,13 +8,19 @@
 //para enviar por la red cadenas de caracteres sencillas que ocupan menos espacio que un tipo de dato complejo.
 //El formato de dato que viaja por la red es de tipo json.
 //Por esto debo aplanar los datos para enviarlos a través de la red. 
+using Veterinary.DomainClass.Entity;
+
 namespace Veterinary.Core.DTOs
 {
     public class PetFullDto
     {
+        public long Id { get; set; }
         public string? petName { get; set; }
         public long clientId { get; set; }
         public long typeId { get; set; }
-      
+        public bool IsDeleted { get; set; }
+        public virtual PetType? petType { get; set; }
+        public virtual Client? client { get; set; }
+
     }
 }

@@ -24,19 +24,19 @@ namespace ApplicationsServices.Features.Commands.DeleteCommands.DeleteClientComm
         public async Task<Response<long>> Handle(DeleteClientCommand request, CancellationToken cancellationToken)
         {
             //Obtiene el registro en base al Id enviado.
-            var register = await _repository.GetByIdAsync(request.Id);
+            var dltclient = await _repository.GetByIdAsync(request.Id);
             //Consulta si se regreso algún registro desde la base de datos.
-            if (register == null)
+            if (dltclient == null)
             {
                 throw new KeyNotFoundException($"No se encontro el registro con el Id: {request.Id}");
             }
             else
             {
-                register.IsDeleted = false;
-                await _repository.DeleteAsync(register);
-                
+
+                dltclient.IsDeleted = true;
+                await _repository.UpdateAsync(dltclient);
             }
-            return new Response<long>(register.Id);
+            return new Response<long>(dltclient.Id);
         }
     }
 }

@@ -7,6 +7,6 @@ namespace Veterinary.DomainClass.Entity
         
         public string? type { get; set; }
 
-       
+        public virtual ICollection<Pet> Pets { get; set; }
     }
 }

@@ -6,6 +6,7 @@ namespace ApplicationsServices.Wrappers
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
+        public bool IsDeleted { get; set; }
         public ParameterResponse()
         {
             PageNumber = 1;

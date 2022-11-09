@@ -5,7 +5,6 @@ namespace Veterinary.DomainClass.Entity
     public class Client : BaseEntity
     {
         
-        //private string _password;
         public string? clientName { get; set; }
         public string? clientSurname { get; set; }
         public string? clientAdress { get; set; }
@@ -14,7 +13,8 @@ namespace Veterinary.DomainClass.Entity
         public string? email { get; set; }
 
         #region
-        public virtual ICollection<Pet> Pets { get; set; }
+            public virtual ICollection<Pet> Pets { get; set; }
+        
         #endregion
     }
 }
