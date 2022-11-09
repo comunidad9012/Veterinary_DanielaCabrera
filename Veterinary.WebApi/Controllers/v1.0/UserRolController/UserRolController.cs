@@ -8,7 +8,9 @@ using ApplicationsServices.Features.Commands.CreateCommands.CreateUserRolCommand
 using ApplicationsServices.Features.Commands.DeleteCommands.DeleteUserRolCommand;
 using ApplicationsServices.Features.Commands.UpdateCommands.UpdateUserRolCommand;
 using ApplicationsServices.Features.Queries.SelectAllQueries;
+using ApplicationsServices.Features.Queries.SelectAllQueries.SelectUserRolQuery;
 using ApplicationsServices.Features.Queries.SelectByQueries;
+using ApplicationsServices.Features.Queries.SelectByQueries.SelectUserRolByIdQuery;
 using ApplicationsServices.Filters.UserRolResponseFilter;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +27,8 @@ namespace Veterinary.WebApi.Controllers.v1._0
                 PageNumber = filter.PageNumber,
                 PageSize = filter.PageSize,
                 rol = filter.rol,
-                
+                IsDeleted = filter.IsDeleted
+
             }));
         }
 

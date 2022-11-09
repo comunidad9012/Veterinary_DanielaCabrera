@@ -6,6 +6,7 @@ using ApplicationsServices.Features.Commands.UpdateCommands.UpdateVetCommand;
 using ApplicationsServices.Features.Queries.SelectAllQueries;
 using ApplicationsServices.Features.Queries.SelectAllQueries.SelectVetQuery;
 using ApplicationsServices.Features.Queries.SelectByQueries;
+using ApplicationsServices.Features.Queries.SelectByQueries.SelectVetByIdQuery;
 using ApplicationsServices.Filters.VetResponseFilter;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,8 @@ namespace Veterinary.WebApi.Controllers.v1._0
                 PageNumber = filter.PageNumber,
                 PageSize = filter.PageSize,
                 vetName = filter.vetName,
-                vetSurname = filter.vetSurname
+                vetSurname = filter.vetSurname,
+                IsDeleted = filter.IsDeleted
             }));
         }
 

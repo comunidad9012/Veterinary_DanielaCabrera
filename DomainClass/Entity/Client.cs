@@ -12,6 +12,9 @@ namespace Veterinary.DomainClass.Entity
         public string? clientPhoneNum { get; set; }
         public string? clientIdn { get; set; }
         public string? email { get; set; }
-        
+
+        #region
+        public virtual ICollection<Pet> Pets { get; set; }
+        #endregion
     }
 }

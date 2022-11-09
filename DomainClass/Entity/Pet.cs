@@ -9,7 +9,7 @@ namespace Veterinary.DomainClass.Entity
         public long clientId { get; set; }
         public long typeId { get; set; }
 
-
         public virtual Client Client { get; set; }
+        public virtual ICollection<PetType> PetTypes { get; set; }
     }
 }
