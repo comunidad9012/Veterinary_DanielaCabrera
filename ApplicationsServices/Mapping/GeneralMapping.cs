@@ -7,6 +7,7 @@ using ApplicationsServices.Features.Commands.CreateCommands.CreateUserCommand;
 using ApplicationsServices.Features.Commands.CreateCommands.CreateUserRolCommand;
 using ApplicationsServices.Features.Commands.CreateCommands.CreateVetCommand;
 using ApplicationsServices.Features.Commands.CreateCommands.CreateVisitCommand;
+using ApplicationsServices.Features.Commands.CreateCommands.CreateVisitDetailCommand;
 using AutoMapper;
 using Veterinary.Core.DTOs;
 using Veterinary.DomainClass.Entity;

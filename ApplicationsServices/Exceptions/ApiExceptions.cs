@@ -6,6 +6,9 @@ namespace ApplicationsServices.Exceptions
 {
     public class ApiExceptions : Exception
     {
+        //muestra seguimientos detallados de la pila para detectar errores de servidor.
+        //Utiliza DeveloperExceptionPageMiddleware para capturar excepciones sincrónicas
+        //y asincrónicas de la canalización HTTP y para generar respuestas de error.
         public ApiExceptions() : base() { }
         public ApiExceptions(string message) : base(message) { }
         public ApiExceptions(string message, params object[] args) 

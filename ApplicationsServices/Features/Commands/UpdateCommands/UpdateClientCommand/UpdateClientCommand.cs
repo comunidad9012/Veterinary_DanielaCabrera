@@ -23,6 +23,7 @@ namespace ApplicationsServices.Features.Commands.UpdateCommands.UpdateClientComm
         public string clientPhoneNum { get; set; }
         public string clientIdn { get; set; }
         public string email { get; set; }
+        public long LastModifiedBy { get; set; }
     }
     public class UpdateClientCommandHandler : IRequestHandler<UpdateClientCommand, Response<long>>
     {
@@ -51,11 +52,8 @@ namespace ApplicationsServices.Features.Commands.UpdateCommands.UpdateClientComm
                 register.clientPhoneNum = request.clientPhoneNum;
                 register.clientIdn = request.clientIdn;
                 register.email = request.email;
-
                 await _repository.UpdateAsync(register);
             }
-
-
             return new Response<long>(register.Id);
         }
     }

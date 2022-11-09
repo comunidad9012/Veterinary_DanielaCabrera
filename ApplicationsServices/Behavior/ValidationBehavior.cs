@@ -9,12 +9,14 @@ using FluentValidation;
 using MediatR;
 
 namespace ApplicationsServices.Behavior
-
 {
+    //Clase se encargara de controlar el comportamiento de las validaciones de las peticiones.
+    //IRequest,IPipelineBehavior Interfaz propia De MEDIATR
+    //Nos permite manejar las excepsiones
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validator;
-
+        //Una dependencia es un objeto del que depende otro objeto. 
         public ValidationBehavior(IEnumerable<IValidator<TRequest>> validator)
         {
             _validator = validator;
@@ -22,6 +24,7 @@ namespace ApplicationsServices.Behavior
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
+            //Captura las excepciones
             if (_validator.Any())
             {
                 var context = new FluentValidation.ValidationContext<TRequest>(request);
@@ -31,6 +34,8 @@ namespace ApplicationsServices.Behavior
 
                 if (failures.Count != 0)
                 {
+                    //Devuelve una excepcion generica o personalizadas de la clase ValidationExceptions
+
                     throw new Exceptions.ValidationExceptions(failures);
                     //Exception significa error
                 }

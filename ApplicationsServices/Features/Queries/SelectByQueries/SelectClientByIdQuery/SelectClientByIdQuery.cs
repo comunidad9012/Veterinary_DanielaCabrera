@@ -10,6 +10,7 @@ namespace ApplicationsServices.Features.Queries.SelectByQueries.SelectClientById
     public class SelectClientByIdQuery : IRequest<Response<ClientFullDto>>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
     public class SelectClientByIdQueryHandler : IRequestHandler<SelectClientByIdQuery, Response<ClientFullDto>>
     {

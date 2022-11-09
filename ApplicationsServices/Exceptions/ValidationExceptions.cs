@@ -13,10 +13,13 @@ namespace ApplicationsServices.Exceptions
         {
             Errors = new List<string>();
         }
+        //Recolecta las validaciones que larga "ValidationFailure"
         public ValidationExceptions(IEnumerable<ValidationFailure> failures) : this()
         {
+            //Recorre todos los errores y lo va agregando al listado de errores
             foreach (var failure in failures)
             {
+                //Imprime el ErrorMessage
                 Errors.Add(failure.ErrorMessage);
             }
         }

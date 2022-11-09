@@ -1,6 +1,7 @@
 ﻿using ApplicationsServices.Filters.ClientResponseFilter;
 using ApplicationsServices.Interfaces;
 using ApplicationsServices.Specifications;
+using ApplicationsServices.Specifications.PaginatedClientSpecification;
 using ApplicationsServices.Wrappers;
 using AutoMapper;
 using MediatR;
@@ -15,6 +16,7 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectClientQue
         public int PageSize { get; set; }
         public string? clientName { get; set; }
         public string? clientSurname { get; set; }
+        public bool IsDeleted { get; set; }
 
         public class SelectClientQueryHandler : IRequestHandler<SelectClientQuery, PaginatedResponse<IEnumerable<ClientFullDto>>>
         {
@@ -33,12 +35,13 @@ namespace ApplicationsServices.Features.Queries.SelectAllQueries.SelectClientQue
                     PageSize = request.PageSize,
                     PageNumber = request.PageNumber,
                     clientName = request.clientName,
-                    clientSurname = request.clientSurname
+                    clientSurname = request.clientSurname,
+                    IsDeleted = request.IsDeleted
                 };
 
                 var clients = await _repository.ListAsync(new PaginatedClientSpecification(responseFilter));
                 var clientFullDtos = _mapper.Map<IEnumerable<ClientFullDto>>(clients);
-                return new PaginatedResponse<IEnumerable<ClientFullDto>>(clientFullDtos, request.PageNumber, request.PageSize);
+                return new PaginatedResponse<IEnumerable<ClientFullDto>>(clientFullDtos, request.PageNumber, request.PageSize,request.IsDeleted);
             }
         }
     }

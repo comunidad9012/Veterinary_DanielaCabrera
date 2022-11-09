@@ -7,7 +7,6 @@ using MediatR;
 using Veterinary.DomainClass.Entity;
 namespace ApplicationsServices.Features.Commands.CreateCommands.CreateClientCommand
 {
-
     public class CreateClientCommand : IRequest<Response<long>>//response es quien nos arma la respuesta a devolver
     {
         //aca solo tengo los campos para crear un registro nuevo

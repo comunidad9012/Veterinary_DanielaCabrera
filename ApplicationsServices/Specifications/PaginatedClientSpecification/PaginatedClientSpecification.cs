@@ -17,7 +17,14 @@ namespace ApplicationsServices.Specifications.PaginatedClientSpecification
 
             if (!string.IsNullOrEmpty(filter.clientSurname))
                 Query.Search(x => x.clientSurname, "%" + filter.clientSurname + "%");
-
+            if (filter.IsDeleted == true)
+            {
+                Query.Where(x => x.IsDeleted == true);
+            }
+            else 
+            {
+                Query.Where(x => x.IsDeleted == false);
+            }
         }
     }
 }

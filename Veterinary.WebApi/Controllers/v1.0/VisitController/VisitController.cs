@@ -12,7 +12,7 @@ namespace Veterinary.WebApi.Controllers.v1._0
     public class VisitController : BaseApiController
     {
         [HttpGet]
-        public async Task<IActionResult> GetAllVet([FromQuery] VisitResponseFilter filter)
+        public async Task<IActionResult> GetAllVisit([FromQuery] VisitResponseFilter filter)
         {
             return Ok(await Mediator.Send(new SelectVisitQuery
             {

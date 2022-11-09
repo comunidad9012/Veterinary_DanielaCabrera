@@ -6,5 +6,6 @@ namespace ApplicationsServices.Filters.ClientResponseFilter
     {
         public string? clientName { get; set; }
         public string? clientSurname { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

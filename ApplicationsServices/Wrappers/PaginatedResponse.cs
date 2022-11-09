@@ -6,8 +6,9 @@ namespace ApplicationsServices.Wrappers
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
+        public bool IsDeleted { get; set; }
 
-        public PaginatedResponse(T data, int pageNumber, int pageSize)
+        public PaginatedResponse(T data, int pageNumber, int pageSize, bool isDeleted)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
@@ -15,6 +16,7 @@ namespace ApplicationsServices.Wrappers
             Message = null;
             Successful = true;
             Errors = null;
+            IsDeleted = isDeleted;
         }
     }
 }
