@@ -21,8 +21,8 @@ namespace ApplicationsServices.Mapping
             CreateMap<Client, ClientFullDto>();
             CreateMap<CreateClientCommand, Client>();
 
-            CreateMap<User, UserFullDto>();
-            CreateMap<CreateUserCommand, User>();
+            //CreateMap<User, UserFullDto>();
+            //CreateMap<CreateUserCommand, User>();
 
             CreateMap<Pet, PetFullDto>();
             CreateMap<CreatePetCommand, Pet>();
@@ -30,23 +30,23 @@ namespace ApplicationsServices.Mapping
             CreateMap<PetType,PetTypeFullDto>();
             CreateMap<CreatePetTypeCommand, PetType>();
             
-            CreateMap<Procedure, ProcedureFullDto>();
-            CreateMap<CreateProcedureCommand, Procedure>();
+            //CreateMap<Procedure, ProcedureFullDto>();
+            //CreateMap<CreateProcedureCommand, Procedure>();
 
-            CreateMap<Specialty, SpecialtyFullDto>();
-            CreateMap<CreateSpecialtyCommand, Specialty>();
+            //CreateMap<Specialty, SpecialtyFullDto>();
+            //CreateMap<CreateSpecialtyCommand, Specialty>();
 
-            CreateMap<UserRol, UserRolFullDto>();
-            CreateMap<CreateUserRolCommand, UserRol>();
+            //CreateMap<UserRol, UserRolFullDto>();
+            //CreateMap<CreateUserRolCommand, UserRol>();
 
-            CreateMap<Vet, VetFullDto>();
-            CreateMap<CreateVetCommand, Vet>();
+            //CreateMap<Vet, VetFullDto>();
+            //CreateMap<CreateVetCommand, Vet>();
 
-            CreateMap<Visit, VisitFullDto>();
-            CreateMap<CreateVisitCommand, Visit>();
+            //CreateMap<Visit, VisitFullDto>();
+            //CreateMap<CreateVisitCommand, Visit>();
 
-            CreateMap<VisitDetail,VisitDetailFullDto>();
-            CreateMap<CreateVisitDetailCommand, VisitDetail>();
+            //CreateMap<VisitDetail,VisitDetailFullDto>();
+            //CreateMap<CreateVisitDetailCommand, VisitDetail>();
         }
     }
 }

@@ -16,15 +16,15 @@ namespace Persistence.Contexts
         }
 
         public DbSet<Client> Clients { get; set; }
-        DbSet<User> Users { set; get; }
+        //DbSet<User> Users { set; get; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<PetType> PetTypes { get; set; }
-        DbSet<UserRol> UserRol { get; set; }
-        DbSet<Procedure> Procedures { get; set; }
-        DbSet<Specialty> Specialties { get; set; }
-        DbSet<Vet> Vets { get; set; }
-        DbSet<Visit> Visits { get; set; }
-        DbSet<VisitDetail> VisitDetails { get; set; }
+        //DbSet<UserRol> UserRol { get; set; }
+        //DbSet<Procedure> Procedures { get; set; }
+        //DbSet<Specialty> Specialties { get; set; }
+        //DbSet<Vet> Vets { get; set; }
+        //DbSet<Visit> Visits { get; set; }
+        //DbSet<VisitDetail> VisitDetails { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
